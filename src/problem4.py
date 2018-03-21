@@ -2,8 +2,8 @@
 Exam 1, problem 4.
 
 Authors: David Mutchler, Dave Fisher, Matt Boutell, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  March 2018.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Zack Watson.  March 2018.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -135,9 +135,15 @@ def problem4(m):
                                  (i.e., it is prime)
     """
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
+
+    count = 0
+    for i in range(m - 2):
+        if m % (i+2) == 0:
+            count = count + 1
+    return count
 
 
 # -----------------------------------------------------------------------------
