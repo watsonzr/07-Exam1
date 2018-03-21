@@ -2,8 +2,8 @@
 Exam 1, problem 1.
 
 Authors: David Mutchler, Dave Fisher, Matt Boutell, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  March 2018.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Zack Watson.  March 2018.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
 
 
 ###############################################################################
-# TODO: 2.  READ the doc-string for the   product_of_digits   function below.
+# DONE: 2.  READ the doc-string for the   product_of_digits   function below.
 #           Ask your instructor for help if you do not understand it.
 #
 #   Once you are confident that you understand the doc-string
@@ -196,7 +196,7 @@ def problem1a(a, b, threshold):
               returns 109 + 110 + 111 + 112 + 120 + 121 + 130,  which is 813
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # IMPORTANT NOTE
@@ -205,11 +205,17 @@ def problem1a(a, b, threshold):
     #     1-argument version of the RANGE statement to solve this problem.
     # -------------------------------------------------------------------------
 
+    total = 0
+    for i in range(b - a + 1):
+        if product_of_digits(a + i) < threshold:
+            total = total + (a + i)
+    return total
+
 
 def run_test_problem1b():
     """ Tests the   problem1b   function. """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement at least 4 tests of the problem1b function.
+    # DONE: 4. Implement at least 4 tests of the problem1b function.
     #   Note that you CANNOT use  problem1b(1)  or  problem1b(2)  as tests, per
     #   the specification below that says that the argument must be at least 3.
     # -------------------------------------------------------------------------
@@ -217,6 +223,46 @@ def run_test_problem1b():
     print('--------------------------------------------------')
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
+
+    # Test 1:
+    expected = 3
+    answer = problem1b(3)
+    print()
+    print('Test 1 is: problem1b(3)')
+    print('  Expected:', expected)
+    print('  Actual:  ', answer)
+
+    # Test 2:
+    expected = 4 + 10 + 11 + 12 + 13 + 14
+    answer = problem1b(4)
+    print()
+    print('Test 2 is: problem1b(4)')
+    print('  Expected:', expected)
+    print('  Actual:  ', answer)
+
+    # Test 3:
+    expected = 5 + 10 + 11 + 12 + 13 + 14 + 15 + 20 + 21 + 22
+    answer = problem1b(5)
+    print()
+    print('Test 3 is: problem1b(5)')
+    print('  Expected:', expected)
+    print('  Actual:  ', answer)
+
+    # Test 4:
+    expected = 10 + 11 + 12 + 13 + 14 + 15 + 16 + 17 + 18 + 19 + 20 + 21 + 22 + 23 + 24 + 25 + 30 + 31 + 32 + 33 + 40 + 41 + 42 + 50 + 51 + 52 + 60 + 61 + 70 + 71 + 80 + 81 + 90 + 91 + 100
+    answer = problem1b(10)
+    print()
+    print('Test 4 is: problem1b(10)')
+    print('  Expected:', expected)
+    print('  Actual:  ', answer)
+
+    # Test 5:
+    expected = 682
+    answer = problem1b(8)
+    print()
+    print('Test 5 is: problem1b(8)')
+    print('  Expected:', expected)
+    print('  Actual:  ', answer)
 
 
 ###############################################################################
@@ -239,9 +285,15 @@ def problem1b(r):
            and the sum of the above numbers is 682
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          See the IMPORTANT NOTE just before the DEF above.
     # -------------------------------------------------------------------------
+
+    total = problem1a(r, r ** 2, r)
+    for i in range((r ** 2) - r + 1):
+        if product_of_digits(r + i) == r:
+            total = total + (r + i)
+    return total
 
 
 # -----------------------------------------------------------------------------
